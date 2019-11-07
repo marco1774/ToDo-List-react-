@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Title from "./components/title";
 import TodoForm from "./components/todoForm";
 import TodoList from "./components/todoList";
+import axios from "axios";
 import "./App.css";
 import TotalCount from "./components/totalCount";
 
@@ -11,10 +12,19 @@ export class App extends Component {
   state = {
     coseDaFareArray: [{ testo: "questa è una prova!!", Id: 0 }]
   };
+  // componentDidMount = () => {
+  //   fetch("http://5da87245e44c790014cd4dfd.mockapi.io/api/versione1/coseDaFare")
+  //     .then(eleObj => eleObj.json())
+  //     .then(elemento => this.setState({ coseDaFareArray: elemento }));
+  // };
+
   componentDidMount = () => {
-    fetch("http://5da87245e44c790014cd4dfd.mockapi.io/api/versione1/coseDaFare")
-      .then(eleObj => eleObj.json())
+    axios
+      .get("http://localhost:3000/tasks")
+      .then(res => console.dir(res.data[0].name))
       .then(elemento => this.setState({ coseDaFareArray: elemento }));
+
+    console.log(this.state.coseDaFareArray);
   };
 
   aggiungiAllaLista = event => {
