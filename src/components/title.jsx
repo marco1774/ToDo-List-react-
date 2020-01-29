@@ -5,7 +5,7 @@ export default function Title() {
     <div className="container">
       <div className="row d-flex justify-content-center ">
         <div className=" badge badge-pill badge-primary badge-title ">
-          ToDO - LIST
+          ToDo - LIST
         </div>
       </div>
     </div>

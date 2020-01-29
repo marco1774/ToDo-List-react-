@@ -12,20 +12,20 @@ export class App extends Component {
   state = {
     coseDaFareArray: [{ testo: "questa è una prova!!", Id: 0 }]
   };
-  // componentDidMount = () => {
-  //   fetch("http://5da87245e44c790014cd4dfd.mockapi.io/api/versione1/coseDaFare")
-  //     .then(eleObj => eleObj.json())
-  //     .then(elemento => this.setState({ coseDaFareArray: elemento }));
-  // };
-
   componentDidMount = () => {
-    axios
-      .get("http://localhost:3000/tasks")
-      .then(res => console.dir(res.data[0].name))
+    fetch("http://5da87245e44c790014cd4dfd.mockapi.io/api/versione1/coseDaFare")
+      .then(eleObj => eleObj.json())
       .then(elemento => this.setState({ coseDaFareArray: elemento }));
-
-    console.log(this.state.coseDaFareArray);
   };
+
+  // componentDidMount = () => {
+  //   axios
+  //     .get("http://localhost:3000/tasks")
+  //     .then(res => console.dir(res.data[0].name))
+  //     .then(elemento => this.setState({ coseDaFareArray: elemento }));
+
+  //   console.log(this.state.coseDaFareArray);
+  // };
 
   aggiungiAllaLista = event => {
     console.log("Aggiunto alla lista.", event, this.state.coseDaFareArray);
