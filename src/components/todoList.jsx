@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import Todo from "./todo";
 
-export class TodoList extends Component {
+class TodoList extends Component {
   render() {
-    const lista = this.props.coseDaFareArray.map(elemento => (
+    console.log(this.props.coseDaFareArray);
+    let lista = this.props.coseDaFareArray.map(elemento => (
       <Todo
         testo={elemento.testo}
         Id={elemento.Id}
+        checked={elemento.checked}
         cancellaDallaLista={this.props.cancellaDallaLista}
+        fatto={this.props.fatto}
       />
     ));
 

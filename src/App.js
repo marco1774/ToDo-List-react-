@@ -31,8 +31,9 @@ export class App extends Component {
     console.log("Aggiunto alla lista.", event, this.state.coseDaFareArray);
     // this.state.coseDaFareArray.push({ testo: event, Id: window.id++ });
     this.state.coseDaFareArray.push({
+      Id: this.state.coseDaFareArray.length,
       testo: event,
-      Id: this.state.coseDaFareArray.length
+      checked: false
     });
     this.setState({ coseDaFareArray: this.state.coseDaFareArray });
   };
@@ -45,6 +46,25 @@ export class App extends Component {
     this.setState({ coseDaFareArray: resultFilter });
   };
 
+  fatto = event => {
+    console.log("fatto", event);
+    let element;
+    this.state.coseDaFareArray.forEach((elem, index) => {
+      if (elem.Id === event) {
+        return (element = index);
+      }
+    });
+    this.state.coseDaFareArray[element].checked = true;
+
+    this.setState(prevState => {
+      return {
+        prevState
+      };
+    });
+    console.log("Elemento", element);
+    console.log("cose da fare aggiornato", this.state.coseDaFareArray);
+  };
+
   render() {
     return (
       <div className="App shadow p-3 mb-5 bg-white rounded">
@@ -54,6 +74,7 @@ export class App extends Component {
         <TodoList
           coseDaFareArray={this.state.coseDaFareArray}
           cancellaDallaLista={this.cancellaDallaLista}
+          fatto={this.fatto}
         />
       </div>
     );

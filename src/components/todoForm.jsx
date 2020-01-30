@@ -15,6 +15,14 @@ export default function TodoForm(props) {
             placeholder="Aggiungi alla lista..."
             aria-label="Recipient's username"
             aria-describedby="button-addon2"
+            onKeyPress={event => {
+              console.log("premuto", event.which || event.keyCode);
+              let x = event.which || event.keyCode;
+              if (x === 13) {
+                props.aggiungiAllaLista(input.value);
+                input.value = "";
+              }
+            }}
           />
           <div className="input-group-append">
             <button
