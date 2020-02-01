@@ -1,5 +1,5 @@
 ToDo List (React)
-![Image description](ToDo-List-react-/src/img/ToDoList.png)
+![todo image](/src/img/ToDoList.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
